@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VIVAMOVIE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="dark" id="body">
+<div>
+<nav class="navbar">
+    <div class="nav-left">
+        <span class="logo">VIVAMOVIE</span>
+
+
+         <button class="buttontwo"><a href="{{ url_for('movies') }}">Home</a></button>
+
+          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Genres
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">Advanture</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Animation</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="nav-center">
+        <form method="get" action="{{ url_for('movies') }}">
+            <input type="text" name="q" placeholder="Search movies...">
+        </form>
+    </div>
+
+    <div class="nav-right">
+        {% if session.get('user') %}
+           <button class="buttontwo"><a href="{{ url_for('logout') }}">Logout</a></button>
+        {% else %}
+           <button class="buttontwo"><a href="{{ url_for('login') }}">Login</a></button>
+          <button class="buttontwo" ><a href="{{ url_for('register') }}">Register</a></button>
+        {% endif %}
+
+        <button onclick="toggleTheme()" class="theme-btn"> 🔆light/◯dark</button>
+    </div>
+</nav>
+    </div>
+<br><br><br><br><br>
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+<script>
+function toggleTheme() {
+    const body = document.getElementById("body");
+    body.classList.toggle("light");
+    body.classList.toggle("dark");
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

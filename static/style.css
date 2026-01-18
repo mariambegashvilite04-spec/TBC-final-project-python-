@@ -1,0 +1,80 @@
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+nav {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+body.dark {background:#111;color:#fff}
+body.light {background:#fff;color:#000}
+nav {display:flex;align-items:center;justify-content:space-between;padding:15px}
+.logo {font-size:28px;font-style:italic;font-weight:bold}
+.movies {display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+.card {width:220px;background:#222;padding:10px;border-radius:8px;text-align:center}
+button:hover {background:#0057ff}
+.watch {background:navy;color:white}
+.edit {background:darkgreen;color:white}
+.delete {background:maroon;color:white}
+.auth-box {width:300px;margin:80px auto;display:flex;flex-direction:column;gap:10px}
+
+
+/* MODAL */
+.modal {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7)}
+.modal-content {background:#fff;color:#000;width:50%;margin:8% auto;padding:20px;border-radius:10px;display:flex;gap:20px}
+.modal.show {display:block}
+.dropzone {border:2px dashed #555;padding:20px;text-align:center}
+
+input {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 15px;
+    height: 39px;
+}
+
+.registerpg {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 13px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+font-size: 16px;
+  cursor: pointer;
+   text-decoration: none;
+   padding: 15px 32px;
+   color: white;
+background: #000000;
+background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(5, 5, 70, 1) 0%, rgba(9, 9, 121, 1) 36%, rgba(0, 27, 32, 1) 55%);
+border:none;
+
+}
+.buttontwo{
+font-size: 16px;
+  cursor: pointer;
+   text-decoration: none;
+   padding: 5px 30px;
+   color: white;
+   background: white;
+   height: 40px;
+  margin-left: 30px;
+   }
+ .card {
+ }
+
+.edit{}
+.watch{}
+.delete{}

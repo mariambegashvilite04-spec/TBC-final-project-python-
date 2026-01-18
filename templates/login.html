@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<form method="post" class="auth-box">
+<input name="username" placeholder="Username" required>
+<div style="position:relative">
+<input name="password" type="password" id="pw" placeholder="Password" required>
+<span onclick="togglePw()" style="position:absolute;right:10px;top:8px;cursor:pointer"></span>
+</div>
+<button>Login</button>
+</form>
+    </div>
+
+
+<script>
+function togglePw(){
+let p=document.getElementById('pw')
+p.type=p.type==='password'?'text':'password'
+}
+</script>
+{% endblock %}

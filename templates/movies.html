@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="movies">
+
+{% for m in movies %}
+<div class="card">
+<img src="{{ m[3] }}" width="200">
+<h3>{{ m[1] }}</h3>
+<p>{{ m[2] }}</p>
+<button class="watch">Watch</button>
+
+
+{% if session.id == 1 or session.id == 2 %}
+<button class="edit" onclick="openModal('{{m[0]}}','{{m[1]}}','{{m[2]}}')">Edit</button>
+{% endif %}
+{% if session.id == 1 %}
+<a class="delete" href="/delete/{{m[0]}}">Delete</a>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+
+
+<div id="modal" class="modal">
+<div class="modal-content">
+<form method="post" id="editForm">
+<div class="dropzone" ondrop="dropHandler(event)" ondragover="event.preventDefault()">Drag & Drop Image</div>
+<input name="name" id="mname">
+<input name="year" id="myear">
+<button>Save Changes</button>
+<button type="button" onclick="closeModal()">Cancel</button>
+</form>
+</div>
+</div>
+
+
+<script>
+function openModal(id,name,year){
+document.getElementById('modal').classList.add('show')
+document.getElementById('mname').value=name
+document.getElementById('myear').value=year
+document.getElementById('editForm').action='/edit/'+id
+}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function dropHandler(e){e.preventDefault()}
+</script>
+
+
+{% endblock %}
